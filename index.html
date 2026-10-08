@@ -1,0 +1,677 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>ZShoot Official Site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Saira+Condensed:wght@600;700;800;900&display=swap">
+<style>
+/* Layout: full-bleed splash hero, then a two-column intro (pitch + download card), angular-cut panels echoing the logo's shards, one live canvas demo as the centerpiece. Single dark look by choice. */
+:root{
+  --bg:#08090c; --panel:#11141a; --panel-2:#171b23; --line:#242a35;
+  --fg:#eceef2; --mute:#8d95a6; --flame:#ff5a1f; --amber:#ffa51f; --ember:#ff2d17; --ice:#a5e6ff;
+  --display:"Saira Condensed","Arial Narrow","Roboto Condensed",Impact,sans-serif;
+  --body:"Barlow","Segoe UI",system-ui,sans-serif;
+  --gutter:clamp(16px,4vw,40px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.55 var(--body);margin:0;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.95;margin:0;text-wrap:balance;letter-spacing:.005em}
+h2{font-size:clamp(2.2rem,5.4vw,3.8rem);text-transform:uppercase;font-style:italic}
+h3{font-size:1.5rem;text-transform:uppercase}
+p{margin:0}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:var(--gutter)}
+section{padding-block:clamp(56px,9vw,104px)}
+.lede{color:var(--mute);max-width:56ch;margin-top:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+/* shard buttons */
+.btn{--cut:12px;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 30px;border:0;cursor:pointer;
+  font:800 1.25rem/1 var(--display);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:#160a04;
+  background:linear-gradient(100deg,var(--ember),var(--flame) 45%,var(--amber));
+  clip-path:polygon(var(--cut) 0,100% 0,calc(100% - var(--cut)) 100%,0 100%);transition:filter .15s,background .15s}
+.btn:hover{filter:brightness(1.12)}
+.btn:focus-visible{outline:none;background:#fff}
+.btn.ghost{background:var(--panel-2);color:var(--fg)}
+.btn.ghost:hover{background:#222833;filter:none}
+.btn.ghost:focus-visible{background:var(--fg);color:#000}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(8,9,12,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.brand{font:900 1.9rem/1 var(--display);font-style:italic;text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:2px}
+.brand b{background:linear-gradient(160deg,var(--amber),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:2px}
+nav.main{margin-left:auto;display:flex;gap:26px}
+nav.main a{font:700 1.05rem/1 var(--display);letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--mute);padding:8px 0}
+nav.main a:hover{color:var(--fg)}
+header.top .btn{min-height:40px;padding:0 20px;font-size:1.05rem;--cut:9px}
+@media(max-width:820px){nav.main{display:none}header.top .btn{margin-left:auto}}
+
+/* hero */
+.hero{position:relative;padding:0;overflow:hidden;background:#080a0d}
+.hero img{width:100%;height:clamp(360px,50vw,620px);object-fit:cover;object-position:50% 50%}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(to bottom,transparent,var(--bg))}
+.hero .streak{position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 38%,rgba(255,150,60,.35) 49.6%,rgba(255,255,255,.7) 50%,rgba(255,150,60,.35) 50.4%,transparent 62%);transform:translateX(-120%);animation:sweep 1.1s .35s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes sweep{to{transform:translateX(120%)}}
+.hero img{animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:none}}
+
+.intro{padding-top:clamp(8px,2vw,24px);padding-bottom:clamp(40px,6vw,72px)}
+.intro .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,64px);align-items:center}
+.intro h1{font-size:clamp(2.6rem,7vw,5.2rem);text-transform:uppercase;font-style:italic}
+.intro h1 span{display:block;color:var(--flame)}
+.intro p.lede{font-size:1.15rem;color:#b9bfcc}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding:0;list-style:none}
+.chips li{font:700 .95rem/1 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);background:var(--panel);padding:9px 14px;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.dl-card{background:var(--panel);padding:26px;display:grid;gap:18px;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%)}
+.dl-card .row{display:flex;gap:18px;align-items:center}
+.dl-card img.app{width:84px;height:84px;border-radius:20px;flex:none}
+.dl-card .name{font:800 2rem/1 var(--display);text-transform:uppercase;font-style:italic}
+.dl-card .meta{color:var(--mute);font-size:.95rem}
+.dl-card .btn{width:100%}
+.dl-card small{color:var(--mute);font-size:.85rem;text-align:center}
+@media(max-width:820px){.intro .wrap{grid-template-columns:1fr}}
+
+/* ticker */
+.ticker{padding:0;border-block:1px solid var(--line);background:var(--panel);overflow:hidden}
+.ticker div{display:flex;gap:44px;white-space:nowrap;width:max-content;padding:14px 0;font:800 1.5rem/1 var(--display);font-style:italic;text-transform:uppercase;color:#3a4150;animation:tick 38s linear infinite}
+.ticker div span:nth-child(3n+1){color:var(--flame)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* features */
+.feat-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:18px;margin-bottom:36px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.card{background:var(--panel);padding:26px;display:grid;gap:12px;align-content:start;min-width:0;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+.card p{color:#aab1c0;font-size:1rem}
+.card svg.ic{width:38px;height:38px;color:var(--flame)}
+.card.big{grid-column:span 3;grid-row:span 2}
+.card.mid{grid-column:span 3}
+.card.sm{grid-column:span 2}
+@media(max-width:900px){.card.big,.card.mid,.card.sm{grid-column:span 6;grid-row:auto}}
+@media(min-width:560px) and (max-width:900px){.card.sm{grid-column:span 3}.card.sm:last-child{grid-column:span 6}}
+.thumbs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
+.thumb{aspect-ratio:1.25;background:var(--bg);display:grid;place-items:center;position:relative;overflow:hidden}
+.thumb .ring{width:56%;aspect-ratio:1;border-radius:50%;border:2px dashed #3a4150;display:grid;place-items:center}
+.thumb .dot{width:34%;aspect-ratio:1;border-radius:50%;background:var(--flame);box-shadow:0 0 28px rgba(255,90,31,.6)}
+.thumb.fire .ring{border-style:solid;border-color:var(--flame)}
+.thumb.fire .dot{background:var(--amber);animation:pulse 1.4s ease-in-out infinite}
+.thumb.aim .dot{animation:drift 3.6s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(.8)}}
+@keyframes drift{25%{transform:translate(30%,-20%)}60%{transform:translate(-26%,18%)}}
+.thumb b{position:absolute;bottom:10px;font:800 1rem/1 var(--display);letter-spacing:.12em;color:var(--mute)}
+
+/* demo */
+.demo{background:linear-gradient(to bottom,var(--bg),#0c0e13 30%,#0c0e13 70%,var(--bg))}
+.arena-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
+.arena-bar p{color:var(--mute);font-size:.95rem}
+.arena-wrap{position:relative;background:#06070a;box-shadow:0 0 0 1px var(--line),0 30px 80px rgba(255,70,20,.08);clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%)}
+#arena{display:block;width:100%;height:auto;aspect-ratio:16/9;cursor:crosshair}
+#arena.live{touch-action:none}
+.ui{position:absolute;inset:0;display:grid;place-items:center;background:rgba(6,7,10,.62);text-align:center;padding:16px}
+.ui[hidden]{display:none!important}
+.ui .box{display:grid;gap:14px;justify-items:center;max-width:420px}
+.ui h3{font-size:clamp(2.2rem,6vw,3.6rem);font-style:italic}
+.ui p{color:#c3c9d6}
+.ui .stat{font:800 clamp(2.4rem,7vw,4.4rem)/1 var(--display);color:var(--amber);font-variant-numeric:tabular-nums}
+.mute{background:none;border:1px solid var(--line);color:var(--mute);font:700 .95rem/1 var(--display);letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;cursor:pointer}
+.mute[aria-pressed="true"]{color:var(--fg);border-color:var(--flame)}
+
+/* difficulty */
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:end;margin-top:40px}
+.tier{background:var(--panel);padding:20px 20px 22px;display:grid;gap:8px;align-content:end;position:relative;overflow:hidden;min-width:0}
+.tier::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--c),transparent 75%);opacity:.22}
+.tier:nth-child(1){--c:#9aa3b5;min-height:150px}
+.tier:nth-child(2){--c:var(--amber);min-height:210px}
+.tier:nth-child(3){--c:var(--flame);min-height:270px}
+.tier:nth-child(4){--c:var(--ember);min-height:330px}
+.tier h3{position:relative;color:var(--c);font-size:clamp(1.5rem,3.4vw,2.3rem);font-style:italic}
+.tier p{position:relative;color:#aab1c0;font-size:.95rem}
+.tier:nth-child(4) h3{animation:flick 1.6s steps(2,end) infinite}
+@keyframes flick{50%{opacity:.7}}
+@media(max-width:700px){.tiers{grid-template-columns:1fr 1fr}.tier{min-height:0!important}}
+
+/* sounds */
+.sounds{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+.snd{border:0;background:var(--panel);color:var(--fg);padding:22px;display:grid;gap:18px;text-align:left;cursor:pointer;font:inherit;min-width:0;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,0 100%)}
+.snd:hover{background:var(--panel-2)}
+.snd .t{font:800 1.5rem/1 var(--display);text-transform:uppercase;font-style:italic}
+.snd .bars{display:flex;gap:3px;align-items:end;height:42px}
+.snd .bars i{flex:1;background:#2c3340;height:var(--h);transition:background .2s}
+.snd.on .bars i{background:var(--flame);animation:eq .5s ease-in-out infinite alternate;animation-delay:calc(var(--n)*30ms)}
+@keyframes eq{to{transform:scaleY(.35);transform-origin:bottom}}
+.snd small{color:var(--mute)}
+@media(max-width:820px){.sounds{grid-template-columns:1fr 1fr}}
+
+/* install */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px;counter-reset:s;padding:0;list-style:none}
+.steps li{background:var(--panel);padding:26px;display:grid;gap:10px;counter-increment:s;min-width:0;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+.steps li::before{content:counter(s);font:900 3.4rem/1 var(--display);font-style:italic;color:var(--flame)}
+.steps p{color:#aab1c0;font-size:1rem}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+/* download */
+.get{background:radial-gradient(900px 340px at 50% 0,rgba(255,80,20,.16),transparent 70%)}
+.get .panel{background:var(--panel);display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,48px);padding:clamp(22px,4vw,44px);clip-path:polygon(0 0,calc(100% - 36px) 0,100% 36px,100% 100%,0 100%)}
+.get .app{width:clamp(110px,16vw,190px);aspect-ratio:1;border-radius:14%}
+.get .body{display:grid;gap:22px;min-width:0}
+.spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;margin:0}
+.spec div{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.spec dt{color:var(--mute)}
+.spec dd{margin:0;font-weight:600;text-align:right}
+.hash{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.hash code{flex:1 1 280px;min-width:0;overflow-wrap:anywhere;font:500 .85rem/1.4 ui-monospace,Menlo,Consolas,monospace;color:#b9bfcc;background:var(--bg);padding:10px 12px}
+.hash .mute{padding:10px 14px}
+@media(max-width:720px){.get .panel{grid-template-columns:1fr}.spec{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;gap:10px;margin-top:34px;max-width:860px}
+details{background:var(--panel);padding:0}
+summary{cursor:pointer;list-style:none;padding:20px 24px;font:800 1.35rem/1.15 var(--display);text-transform:uppercase;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--flame);font-size:1.6rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{padding:0 24px 22px;color:#aab1c0;max-width:62ch}
+
+footer{border-top:1px solid var(--line);padding-block:36px 48px;color:var(--mute);font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+footer .brand{font-size:1.5rem;color:var(--fg)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero .streak{display:none}.hero img{animation:none}.ticker div{animation:none}
+  .thumb .dot,.snd.on .bars i,.tier:nth-child(4) h3{animation:none}
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="ZShoot home"><b>Z</b>SHOOT</a>
+    <nav class="main" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#play">Play demo</a>
+      <a href="#sounds">Sounds</a>
+      <a href="#install">Install</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn" href="#download">Download</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <img src="assets/hero.jpg" width="1821" height="864" alt="ZShoot logo: a soldier aiming a rifle inside a crosshair, with the tagline Aim, Shoot, Survive">
+    <div class="streak" aria-hidden="true"></div>
+  </div>
+
+  <section class="intro">
+    <div class="wrap">
+      <div>
+        <h1>Hold the line.<span>Clear every wave.</span></h1>
+        <p class="lede">ZShoot is a fast landscape shooter for Android. Aim with one thumb, fire with the other, chain combos and see how many waves you can survive.</p>
+        <div class="cta-row">
+          <a class="btn" href="#download">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>
+            Download APK
+          </a>
+          <a class="btn ghost" href="#play">Play web demo</a>
+        </div>
+        <ul class="chips" aria-label="Quick facts">
+          <li>Android 5.0+</li><li>2.6 MB</li><li>Works offline</li><li>Landscape</li>
+        </ul>
+      </div>
+      <aside class="dl-card" aria-label="Latest version">
+        <div class="row">
+          <img class="app" src="assets/icon.png" width="84" height="84" alt="ZShoot app icon">
+          <div>
+            <div class="name">ZShoot</div>
+            <div class="meta">Version 2.0.02 &middot; Android</div>
+          </div>
+        </div>
+        <a class="btn" href="#download">Get the latest build</a>
+        <small>Direct APK from the official site. Checksum below.</small>
+      </aside>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div>
+      <span>Aim</span><span>Shoot</span><span>Survive</span><span>Combo</span><span>Freeze</span><span>Screen clear</span><span>Insane</span><span>New high score</span>
+      <span>Aim</span><span>Shoot</span><span>Survive</span><span>Combo</span><span>Freeze</span><span>Screen clear</span><span>Insane</span><span>New high score</span>
+    </div>
+  </div>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="feat-head">
+        <h2>Built for<br>two thumbs</h2>
+        <p class="lede" style="margin:0">Everything on screen exists to keep you aiming, firing and moving up the wave counter.</p>
+      </div>
+      <div class="grid">
+        <article class="card big">
+          <svg class="ic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.6"><circle cx="20" cy="20" r="11"/><path d="M20 3v8M20 29v8M3 20h8M29 20h8"/></svg>
+          <h3>Left thumb aims. Right thumb fires.</h3>
+          <p>Landscape controls built around how you actually hold a phone. Slide to swing the aim line onto a target, tap to fire.</p>
+          <div class="thumbs" aria-hidden="true">
+            <div class="thumb aim"><div class="ring"><div class="dot"></div></div><b>AIM</b></div>
+            <div class="thumb fire"><div class="ring"><div class="dot"></div></div><b>FIRE</b></div>
+          </div>
+        </article>
+        <article class="card mid">
+          <svg class="ic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 30l8-8 6 6 9-12 9 8"/><path d="M4 36h32"/></svg>
+          <h3>Wave after wave</h3>
+          <p>Boxes drop in faster and carry more health as the wave counter climbs. Reach a new wave and the banner tells you.</p>
+        </article>
+        <article class="card mid">
+          <svg class="ic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 4v32M6 12l28 16M34 12L6 28"/></svg>
+          <h3>Combos and freeze</h3>
+          <p>Keep kills chained and the combo multiplier builds. Freeze stops the field for a few seconds, and Screen Clear wipes it.</p>
+        </article>
+        <article class="card sm">
+          <svg class="ic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.6"><circle cx="20" cy="20" r="14"/><path d="M20 12v16M15 17h8a3 3 0 010 6h-6a3 3 0 000 6h8"/></svg>
+          <h3>Coins and high score</h3>
+          <p>Every run banks coins and your best score is saved on the device.</p>
+        </article>
+        <article class="card sm">
+          <svg class="ic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 4l4 12 12 4-12 4-4 12-4-12-12-4 12-4z"/></svg>
+          <h3>Hits you can see</h3>
+          <p>Damage numbers pop off every box and explosions throw sparks when one goes down.</p>
+        </article>
+        <article class="card sm">
+          <svg class="ic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 10a20 20 0 0128 0M11 16a13 13 0 0118 0M16 22a6 6 0 018 0"/><path d="M6 34L34 6"/></svg>
+          <h3>Offline, no permissions</h3>
+          <p>No internet access is requested. The only permission is keeping the screen awake while you play.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="play" class="demo">
+    <div class="wrap">
+      <div class="arena-bar">
+        <div>
+          <h2>Play a round<br>right here</h2>
+          <p class="lede">A simplified browser version of ZShoot. Move to aim, click or tap to fire, hold to keep firing. The full game is on Android.</p>
+        </div>
+        <button class="mute" id="muteBtn" type="button" aria-pressed="false">Sound on</button>
+      </div>
+      <div class="arena-wrap">
+        <canvas id="arena" width="960" height="540" aria-label="ZShoot browser demo. Move the pointer to aim and click or tap to fire at falling boxes."></canvas>
+        <div class="ui" id="uiStart">
+          <div class="box">
+            <h3>Ready?</h3>
+            <p>Stop the boxes before they reach the floor. You have three lives.</p>
+            <button class="btn" id="startBtn" type="button">Start</button>
+          </div>
+        </div>
+        <div class="ui" id="uiOver" hidden>
+          <div class="box">
+            <h3>Game over</h3>
+            <div class="stat" id="finalScore">0</div>
+            <p id="finalMsg"></p>
+            <div class="cta-row" style="justify-content:center;margin:0">
+              <button class="btn" id="againBtn" type="button">Play again</button>
+              <a class="btn ghost" href="#download">Get the full game</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tiers">
+    <div class="wrap">
+      <h2>It only gets<br>louder</h2>
+      <p class="lede">The longer you last, the harder the game leans on you. The pace label climbs through four tiers.</p>
+      <div class="tiers">
+        <div class="tier"><h3>Normal</h3><p>Slow boxes. Find your aim.</p></div>
+        <div class="tier"><h3>Intense</h3><p>More on screen at once.</p></div>
+        <div class="tier"><h3>Extreme</h3><p>Fast, heavy, crowded.</p></div>
+        <div class="tier"><h3>Insane</h3><p>Everything at the same time.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sounds">
+    <div class="wrap">
+      <h2>Hear it first</h2>
+      <p class="lede">These are the actual sound effects from the game. Tap a card to play it.</p>
+      <div class="sounds">
+        <button class="snd" type="button" data-snd="fire"><span class="t">Fire</span><span class="bars" aria-hidden="true"></span><small>Every shot you take</small></button>
+        <button class="snd" type="button" data-snd="hit"><span class="t">Hit</span><span class="bars" aria-hidden="true"></span><small>Damage lands on a box</small></button>
+        <button class="snd" type="button" data-snd="explosion"><span class="t">Explosion</span><span class="bars" aria-hidden="true"></span><small>A box goes down</small></button>
+        <button class="snd" type="button" data-snd="gameover"><span class="t">Game over</span><span class="bars" aria-hidden="true"></span><small>The run ends</small></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="install">
+    <div class="wrap">
+      <h2>Install in<br>three steps</h2>
+      <p class="lede">ZShoot is shared as an APK file straight from this site, so Android asks one extra question the first time.</p>
+      <ol class="steps">
+        <li><h3>Download</h3><p>Tap Download APK and wait for ZShoot-v2.0.02.apk to finish. It is about 2.6 MB.</p></li>
+        <li><h3>Allow the install</h3><p>Open the file. If Android blocks it, tap Settings and allow installs from your browser or file manager.</p></li>
+        <li><h3>Launch and play</h3><p>Tap Install, then Open. Turn your phone sideways and start your first wave.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="download" class="get">
+    <div class="wrap">
+      <div class="panel">
+        <img class="app" src="assets/icon.png" width="190" height="190" alt="ZShoot app icon">
+        <div class="body">
+          <div>
+            <h2>Get ZShoot</h2>
+            <p class="lede">Download the latest build straight from the official site. Aim, shoot, survive.</p>
+          </div>
+          <dl class="spec">
+            <div><dt>Version</dt><dd>2.0.02</dd></div>
+            <div><dt>File size</dt><dd>2.6 MB</dd></div>
+            <div><dt>Requires</dt><dd>Android 5.0 or newer</dd></div>
+            <div><dt>Orientation</dt><dd>Landscape</dd></div>
+            <div><dt>Permissions</dt><dd>Keep screen awake</dd></div>
+            <div><dt>Internet</dt><dd>Not needed</dd></div>
+          </dl>
+          <div class="cta-row" style="margin:0">
+            <a class="btn" href="#download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>
+              Download APK
+            </a>
+          </div>
+          <p style="color:var(--amber);font-size:.95rem;max-width:60ch" id="previewNote">Preview mode: the APK file itself is not served from this preview. When the site is hosted from the zip, this button downloads ZShoot-v2.0.02.apk directly.</p>
+          <div>
+            <p style="color:var(--mute);font-size:.9rem;margin-bottom:8px">SHA-256 checksum of the file</p>
+            <div class="hash">
+              <code id="sha">b8b7ddbeb2223951c509b69616121f6d7775a50bc971e0f75fd86abd494e67d9</code>
+              <button class="mute" id="copySha" type="button">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <div class="faq">
+        <details><summary>Does ZShoot need internet?</summary><p>No. The app does not request internet access, so you can play anywhere and the game has no way to send data off your device.</p></details>
+        <details><summary>Why does Android warn me before installing?</summary><p>Android shows that warning for every app installed from a file instead of an app store. Compare the SHA-256 checksum above with the downloaded file if you want to confirm it is the official build.</p></details>
+        <details><summary>Which phones can run it?</summary><p>Any phone or tablet on Android 5.0 or newer. The game plays in landscape and keeps the screen awake while you play.</p></details>
+        <details><summary>Where is my high score saved?</summary><p>On your device. Your best score and banked coins stay in the app until you clear its data or uninstall it.</p></details>
+        <details><summary>How do I control the game?</summary><p>Hold the phone sideways. Your left thumb aims, your right thumb fires.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><b>Z</b>SHOOT</a>
+    <span>&copy; 2026 ZShoot. All rights reserved. Android is a trademark of Google LLC.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---------- sound ---------- */
+  var muted=false;
+  function pool(src,n,vol){
+    var a=[],i=0;
+    for(var k=0;k<n;k++){var e=new Audio(src);e.preload='auto';e.volume=vol;a.push(e)}
+    return function(force){
+      if(muted&&!force)return;
+      var e=a[i++%n];
+      try{e.currentTime=0;var p=e.play();if(p&&p.catch)p.catch(function(){})}catch(_){}
+    };
+  }
+  var snd={
+    fire:pool('assets/fire.mp3',4,.3),
+    hit:pool('assets/hit.mp3',4,.4),
+    explosion:pool('assets/explosion.mp3',3,.5),
+    gameover:pool('assets/gameover.mp3',1,.6)
+  };
+
+  /* sound lab */
+  document.querySelectorAll('.snd').forEach(function(b){
+    var bars=b.querySelector('.bars'),h='';
+    for(var i=0;i<18;i++){h+='<i style="--n:'+i+';--h:'+(20+Math.round(Math.abs(Math.sin(i*1.7+b.dataset.snd.length))*80))+'%"></i>'}
+    bars.innerHTML=h;
+    b.addEventListener('click',function(){
+      snd[b.dataset.snd](true);
+      b.classList.add('on');
+      clearTimeout(b._t);b._t=setTimeout(function(){b.classList.remove('on')},900);
+    });
+  });
+
+  var muteBtn=document.getElementById('muteBtn');
+  muteBtn.addEventListener('click',function(){
+    muted=!muted;
+    muteBtn.setAttribute('aria-pressed',String(muted));
+    muteBtn.textContent=muted?'Sound off':'Sound on';
+  });
+
+  /* checksum copy */
+  var copyBtn=document.getElementById('copySha');
+  copyBtn.addEventListener('click',function(){
+    var el=document.getElementById('sha'),t=el.textContent.trim();
+    function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);copyBtn.textContent='Selected'}
+    try{navigator.clipboard.writeText(t).then(function(){copyBtn.textContent='Copied'},sel)}catch(_){sel()}
+    setTimeout(function(){copyBtn.textContent='Copy'},1800);
+  });
+
+  /* ---------- demo ---------- */
+  var cv=document.getElementById('arena'),ctx=cv.getContext('2d');
+  var W=960,H=540,dpr=Math.min(window.devicePixelRatio||1,2);
+  cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+  var uiStart=document.getElementById('uiStart'),uiOver=document.getElementById('uiOver');
+  var gx=W/2,gy=H-34;
+  var state='idle',boxes,bullets,parts,dmgs,score,combo,comboT,lives,kills,wave,spawnT,frozenT,fireT,firing,aim,banner,bannerT,shake,best=0,onscreen=true;
+  try{best=+localStorage.getItem('zshoot-best')||0}catch(_){}
+  var FONT='"Saira Condensed","Arial Narrow",Impact,sans-serif';
+
+  function reset(){
+    boxes=[];bullets=[];parts=[];dmgs=[];score=0;combo=0;comboT=0;lives=3;kills=0;wave=1;
+    spawnT=.6;frozenT=0;fireT=0;firing=false;banner='';bannerT=0;shake=0;
+  }
+  function seedIdle(){
+    reset();
+    [[170,90,3],[330,150,5],[480,70,2],[640,140,7],[800,95,4],[250,230,6]].forEach(function(p){
+      boxes.push({x:p[0],y:p[1],s:56,hp:p[2],max:p[2],vy:0,flash:0});
+    });
+    aim=-Math.PI/2;
+  }
+  seedIdle();
+
+  function spawn(){
+    var s=46+Math.random()*18,hp=1+Math.floor(Math.random()*(1+wave*1.1));
+    boxes.push({x:44+Math.random()*(W-88),y:-34,s:s,hp:hp,max:hp,vy:(36+wave*9)*(.8+Math.random()*.5),flash:0});
+  }
+  function say(t){banner=t;bannerT=1.6}
+  function burst(x,y,n,col){
+    for(var i=0;i<n;i++){var a=Math.random()*6.283,v=60+Math.random()*260;
+      parts.push({x:x,y:y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:.5+Math.random()*.5,c:col||(Math.random()<.5?'#ff5a1f':'#ffa51f')})}
+  }
+  function kill(b,gain){
+    burst(b.x,b.y,22);snd.explosion();
+    kills++;
+    if(gain){
+      combo++;comboT=2.4;
+      score+=b.max*10*(1+Math.floor(combo/3));
+      if(combo===5){frozenT=3;say('FREEZE!')}
+      else if(combo===10){
+        say('SCREEN CLEAR!');
+        boxes.forEach(function(o){if(o!==b&&o.hp>0){o.hp=0;score+=o.max*10;burst(o.x,o.y,14)}});
+      }
+    }
+    var w=1+Math.floor(kills/8);
+    if(w>wave){wave=w;say('WAVE '+wave)}
+  }
+  function fire(){
+    var dx=Math.cos(aim),dy=Math.sin(aim);
+    bullets.push({x:gx+dx*40,y:gy+dy*40,vx:dx*980,vy:dy*980});
+    snd.fire();
+  }
+  function over(){
+    state='over';cv.classList.remove('live');
+    snd.gameover();
+    var nb=score>best;
+    if(nb){best=score;try{localStorage.setItem('zshoot-best',String(best))}catch(_){}}
+    document.getElementById('finalScore').textContent=score.toLocaleString();
+    document.getElementById('finalMsg').textContent=(nb?'New high score. ':'Best: '+best.toLocaleString()+'. ')+'You reached wave '+wave+'.';
+    uiOver.hidden=false;
+  }
+
+  function update(dt){
+    if(state!=='play')return;
+    if(frozenT>0)frozenT-=dt;
+    if(comboT>0){comboT-=dt;if(comboT<=0)combo=0}
+    if(bannerT>0)bannerT-=dt;
+    if(shake>0)shake-=dt;
+    spawnT-=dt;
+    if(spawnT<=0){spawn();spawnT=Math.max(.42,1.5-wave*.1)}
+    fireT-=dt;
+    if(firing&&fireT<=0){fire();fireT=.15}
+    bullets.forEach(function(b){b.x+=b.vx*dt;b.y+=b.vy*dt});
+    boxes.forEach(function(b){
+      if(frozenT<=0)b.y+=b.vy*dt;
+      if(b.flash>0)b.flash-=dt;
+    });
+    bullets.forEach(function(bl){
+      for(var i=0;i<boxes.length;i++){
+        var b=boxes[i];
+        if(b.hp>0&&Math.abs(bl.x-b.x)<b.s/2&&Math.abs(bl.y-b.y)<b.s/2){
+          b.hp--;b.flash=.12;bl.dead=true;
+          dmgs.push({x:b.x+(Math.random()*20-10),y:b.y-b.s/2,t:.7,v:1});
+          if(b.hp<=0)kill(b,true);else snd.hit();
+          break;
+        }
+      }
+    });
+    bullets=bullets.filter(function(b){return !b.dead&&b.x>-20&&b.x<W+20&&b.y>-20&&b.y<H+20});
+    boxes=boxes.filter(function(b){
+      if(b.hp<=0)return false;
+      if(b.y+b.s/2>=H-6){
+        lives--;combo=0;shake=.3;burst(b.x,H-8,16,'#ff2d17');snd.hit();
+        return false;
+      }
+      return true;
+    });
+    if(lives<=0)over();
+    parts.forEach(function(p){p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=380*dt;p.l-=dt});
+    parts=parts.filter(function(p){return p.l>0});
+    dmgs.forEach(function(d){d.y-=44*dt;d.t-=dt});
+    dmgs=dmgs.filter(function(d){return d.t>0});
+  }
+
+  function draw(){
+    ctx.save();
+    if(shake>0)ctx.translate((Math.random()-.5)*8,(Math.random()-.5)*8);
+    var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#0b0e14');g.addColorStop(1,'#14100e');
+    ctx.fillStyle=g;ctx.fillRect(-10,-10,W+20,H+20);
+    ctx.strokeStyle='rgba(255,255,255,.035)';ctx.lineWidth=1;
+    for(var x=0;x<=W;x+=60){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}
+    for(var y=0;y<=H;y+=60){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+    ctx.fillStyle='rgba(255,45,23,.14)';ctx.fillRect(0,H-6,W,6);
+
+    /* aim line */
+    ctx.setLineDash([8,10]);ctx.strokeStyle='rgba(255,165,31,.45)';ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(gx+Math.cos(aim)*50,gy+Math.sin(aim)*50);ctx.lineTo(gx+Math.cos(aim)*900,gy+Math.sin(aim)*900);ctx.stroke();
+    ctx.setLineDash([]);
+
+    /* boxes */
+    var frozen=frozenT>0;
+    ctx.font='800 26px '+FONT;ctx.textAlign='center';ctx.textBaseline='middle';
+    boxes.forEach(function(b){
+      var h=b.s/2;
+      ctx.fillStyle=b.flash>0?'#ffffff':(frozen?'#16303d':'#1a1410');
+      ctx.fillRect(b.x-h,b.y-h,b.s,b.s);
+      ctx.lineWidth=3;
+      ctx.strokeStyle=frozen?'#a5e6ff':(b.hp/b.max>.5?'#ff5a1f':'#ffa51f');
+      ctx.strokeRect(b.x-h,b.y-h,b.s,b.s);
+      ctx.fillStyle=b.flash>0?'#000':(frozen?'#a5e6ff':'#eceef2');
+      ctx.fillText(String(b.hp),b.x,b.y+2);
+    });
+
+    /* bullets */
+    ctx.fillStyle='#ffd27a';
+    bullets.forEach(function(b){ctx.beginPath();ctx.arc(b.x,b.y,4,0,6.283);ctx.fill()});
+
+    /* particles */
+    parts.forEach(function(p){ctx.globalAlpha=Math.max(0,p.l*1.6);ctx.fillStyle=p.c;ctx.fillRect(p.x-2,p.y-2,4,4)});
+    ctx.globalAlpha=1;
+
+    /* damage numbers */
+    ctx.font='800 22px '+FONT;ctx.fillStyle='#ffa51f';
+    dmgs.forEach(function(d){ctx.globalAlpha=Math.min(1,d.t*2);ctx.fillText('-'+d.v,d.x,d.y)});
+    ctx.globalAlpha=1;
+
+    /* gun */
+    ctx.save();ctx.translate(gx,gy);ctx.rotate(aim);
+    ctx.fillStyle='#2a303b';ctx.fillRect(-8,-9,52,18);
+    ctx.fillStyle='#ff5a1f';ctx.fillRect(40,-5,12,10);
+    ctx.restore();
+    ctx.fillStyle='#1b2029';ctx.beginPath();ctx.arc(gx,gy+8,26,Math.PI,0);ctx.fill();
+    ctx.strokeStyle='#ff5a1f';ctx.lineWidth=2;ctx.beginPath();ctx.arc(gx,gy+8,26,Math.PI,0);ctx.stroke();
+
+    /* HUD */
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillStyle='#eceef2';ctx.font='800 34px '+FONT;
+    ctx.fillText(String(score),22,16);
+    ctx.fillStyle='#8d95a6';ctx.font='700 16px '+FONT;
+    ctx.fillText('WAVE '+wave+'   BEST '+best,24,54);
+    ctx.textAlign='right';
+    for(var i=0;i<3;i++){ctx.fillStyle=i<lives?'#ff5a1f':'#2a303b';ctx.fillRect(W-30-i*26,20,18,18)}
+    if(combo>1){ctx.fillStyle='#ffa51f';ctx.font='800 28px '+FONT;ctx.fillText('COMBO x'+combo,W-22,50)}
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    if(bannerT>0){
+      ctx.globalAlpha=Math.min(1,bannerT*2);ctx.font='900 italic 64px '+FONT;
+      ctx.fillStyle=banner==='FREEZE!'?'#a5e6ff':'#ff5a1f';
+      ctx.fillText(banner,W/2,H*.38);ctx.globalAlpha=1;
+    }
+    if(frozen){ctx.fillStyle='rgba(165,230,255,.06)';ctx.fillRect(0,0,W,H)}
+    ctx.restore();
+  }
+
+  var last=0;
+  function loop(t){
+    var dt=Math.min(.05,(t-last)/1000||0);last=t;
+    if(onscreen){update(dt);draw()}
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){onscreen=e[0].isIntersecting;if(!onscreen)firing=false},{threshold:.05}).observe(cv);
+  }
+
+  function toLogical(e){
+    var r=cv.getBoundingClientRect();
+    var x=(e.clientX-r.left)/r.width*W,y=(e.clientY-r.top)/r.height*H;
+    var a=Math.atan2(y-gy,x-gx);
+    aim=Math.max(-3.02,Math.min(-.12,a>0?(x<gx?-3.02:-.12):a));
+  }
+  cv.addEventListener('pointermove',function(e){toLogical(e)});
+  cv.addEventListener('pointerdown',function(e){
+    if(state!=='play')return;
+    toLogical(e);firing=true;fireT=0;
+    try{cv.setPointerCapture(e.pointerId)}catch(_){}
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(function(n){cv.addEventListener(n,function(){firing=false})});
+
+  function start(){
+    reset();state='play';cv.classList.add('live');
+    uiStart.hidden=true;uiOver.hidden=true;
+  }
+  document.getElementById('startBtn').addEventListener('click',start);
+  document.getElementById('againBtn').addEventListener('click',start);
+})();
+</script>
+
+</body></html>
