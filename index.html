@@ -1,301 +1,80 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#08090c"><meta name="robots" content="index,follow"><meta name="description" content="ZShoot 3 official website. Download the Android arcade shooter: aim, shoot, survive."><meta property="og:title" content="ZShoot 3 | Official Site"><meta property="og:description" content="ZShoot 3 official website. Download the Android arcade shooter: aim, shoot, survive."><meta property="og:image" content="assets/splash.jpg"><link rel="icon" href="assets/favicon.png"><title>ZShoot 3 | Official Site</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#08090c"><meta name="robots" content="index,follow"><meta name="description" content="About ZShoot and its developer Zishan of ZISHU TRON."><meta property="og:title" content="About | ZShoot"><meta property="og:description" content="About ZShoot and its developer Zishan of ZISHU TRON."><meta property="og:image" content="../assets/splash.jpg"><link rel="icon" href="../assets/favicon.png"><title>About | ZShoot</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Saira+Condensed:wght@600;700;800;900&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head><body class="">
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="" aria-label="ZShoot home"><b>Z</b>SHOOT<i>3</i></a>
+    <a class="brand" href="../" aria-label="ZShoot home"><b>Z</b>SHOOT<i>3</i></a>
     <button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="main" id="mainNav" aria-label="Main">
-      <a href="#whatsnew">What's new</a>
-      <a href="#arsenal">Arsenal</a>
-      <a href="#rewards">Rewards</a>
-      <a href="#play">Play</a>
-      <a href="feedback/">Feedback</a>
-      <a href="ideas/">Ideas</a>
-      <a href="ticket/">Support</a>
-      <a href="about/">About</a>
+      <a href="../#whatsnew">What's new</a>
+      <a href="../#arsenal">Arsenal</a>
+      <a href="../#rewards">Rewards</a>
+      <a href="../#play">Play</a>
+      <a href="../feedback/">Feedback</a>
+      <a href="../ideas/">Ideas</a>
+      <a href="../ticket/">Support</a>
+      <a href="../about/" aria-current="page">About</a>
     </nav>
     <button class="req-btn" id="reqBtn" type="button">My requests<span class="badge-n" id="reqBadge" hidden>0</span></button>
-    <a class="btn" href="#download">Download</a>
+    <a class="btn" href="../#download">Download</a>
   </div>
 </header>
-<main id="main">
-  <section class="hero" id="top">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="wrap hero-in">
-      <div class="hero-copy">
-        <span class="new-pill">Version 3 is out</span>
-        <h1>ZShoot 3</h1>
-        <p class="sub">Aim. Shoot. Survive. Now with a shop, 18 guns, 18 worlds and a 30 day reward calendar.</p>
-        <div class="cta-row">
-          <a class="btn" href="https://github.com/zishutron/Stardust-store/releases/download/v2.0.0/ZShoot_v3.0.0.3.apk" data-apk target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>
-            Download APK
-          </a>
-          <a class="btn ghost" href="#play">Play web demo</a>
+<main id="main"><section id="about" class="about pg">
+    <div class="wrap">
+      <h2>About<br>ZShoot</h2>
+      <div class="about-grid">
+        <div class="stack">
+          <p class="big">ZShoot is an arcade shooter built to fit in a pocket. One thumb aims, one thumb fires, and the waves do not wait.</p>
+          <p>Version 3 grew the game with a shop, an inventory, daily rewards, eighteen guns and eighteen worlds, but the idea stayed the same: keep the loop tight, keep the game light, and let the player decide how far they can push it. There is no account to make and no internet to find. You install it, turn the phone sideways and start shooting.</p>
+          <p>The game is built and updated by one developer, and the roadmap on this page is open to players. What you send under Shape ZShoot is read by a person.</p>
         </div>
-        <ul class="chips" aria-label="Quick facts">
-          <li>Android 5.0+</li><li>17.6 MB</li><li>Works offline</li><li>Landscape</li>
-        </ul>
-      </div>
-      <div class="stage">
-        <img class="logo-s" src="assets/logo.jpg" width="700" height="610" alt="ZShoot logo: a soldier aiming a rifle inside a crosshair">
-        <img class="cr c1" src="assets/crates/normal.webp" alt="" aria-hidden="true">
-        <img class="cr c2" src="assets/crates/fast.webp" alt="" aria-hidden="true">
-        <img class="cr c3" src="assets/crates/tank.webp" alt="" aria-hidden="true">
-        <img class="cr c4" src="assets/crates/power.webp" alt="" aria-hidden="true">
-        <img class="cr c5" src="assets/crates/freez.webp" alt="" aria-hidden="true">
-        <img class="cr c6" src="assets/crates/danger.webp" alt="" aria-hidden="true">
-      </div>
-    </div>
-  </section>
-
-  <div class="ticker" aria-hidden="true">
-    <div>
-      <span>Aim</span><span>Shoot</span><span>Survive</span><span>Easy</span><span>Normal</span><span>Hard</span><span>Intense</span><span>Extreme</span><span>Insane</span><span>Screen clear</span><span>New best wave</span>
-      <span>Aim</span><span>Shoot</span><span>Survive</span><span>Easy</span><span>Normal</span><span>Hard</span><span>Intense</span><span>Extreme</span><span>Insane</span><span>Screen clear</span><span>New best wave</span>
-    </div>
-  </div>
-
-  <section id="whatsnew">
-    <div class="wrap">
-      <div class="feat-head">
-        <h2>What's new<br>in version 3</h2>
-        <p class="lede" style="margin:0">Version 2 was a tight loop. Version 3 gives you reasons to keep coming back: things to buy, things to unlock and a record to beat.</p>
-      </div>
-      <div class="bento">
-        <article class="tile t-shop">
-          <div class="tile-txt">
-            <span class="tag">Shop</span>
-            <h3>Spend your coins on guns and worlds</h3>
-            <p>Every run banks coins. Trade them for a new weapon or a new backdrop in the shop, preview it, then equip it for the next wave.</p>
-          </div>
-          <div class="shop-art" aria-hidden="true">
-            <img src="assets/guns/gun16.webp" alt="">
-            <img src="assets/guns/gun17.webp" alt="">
-            <img src="assets/guns/gun18.webp" alt="">
-          </div>
-        </article>
-        <article class="tile t-daily">
-          <span class="tag">Daily rewards</span>
-          <div class="bigno">30</div>
-          <h3>Days of rewards</h3>
-          <p>Claim once a day for coins, five rare guns and five worlds.</p>
-        </article>
-        <article class="tile t-inv">
-          <span class="tag">Inventory</span>
-          <h3>Everything you own, one tap to equip</h3>
-          <p>Switch gun or world between runs without leaving the menu.</p>
-        </article>
-        <article class="tile t-stats">
-          <span class="tag">Stats</span>
-          <h3>Your record, kept</h3>
-          <p>Total games, total kills, coins and best wave are saved on your phone.</p>
-        </article>
-        <article class="tile t-set">
-          <span class="tag">Settings</span>
-          <h3>Make it feel right</h3>
-          <p>Turn screen shake on or off and mute each sound on its own.</p>
-        </article>
-        <article class="tile t-strike">
-          <span class="tag">Strikes</span>
-          <h3>Let too many crates through and the run is over</h3>
-          <p>A strike flash and its own sound tell you when you slipped. Six crate types keep you guessing which one to shoot first.</p>
-        </article>
-        <article class="tile t-tier">
-          <span class="tag">Difficulty</span>
-          <h3>Six tiers, one direction</h3>
-          <div class="tier-chips" aria-label="Difficulty tiers">
-            <span style="--c:#00ff88">Easy</span><span style="--c:#66ccff">Normal</span><span style="--c:#ffcc00">Hard</span><span style="--c:#ff8c42">Intense</span><span style="--c:#ff4444">Extreme</span><span style="--c:#ff00ff">Insane</span>
-          </div>
-          <p>The label and its colour change as the run heats up.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="crates" class="crates">
-    <div class="wrap">
-      <h2>Know your<br>targets</h2>
-      <p class="lede">Six crate types fall in every run. Learn them by sight and you will know where to aim before they land.</p>
-      <div class="crate-grid" id="crateGrid"></div>
-    </div>
-  </section>
-
-  <section id="arsenal">
-    <div class="wrap">
-      <h2>The arsenal</h2>
-      <p class="lede">Eighteen guns, from a plain pistol to a plasma cannon, plus a rooster and a cat with opinions. Pick one to take a closer look.</p>
-      <div class="arsenal">
-        <div class="gun-stage" aria-live="polite">
-          <img id="gunImg" src="assets/guns/gun16.webp" alt="Sky Booster">
-          <div class="gun-meta"><strong id="gunName">Sky Booster</strong><span id="gunTag" class="pill p-info"></span></div>
-        </div>
-        <div class="gun-grid" id="gunGrid" role="group" aria-label="Choose a gun"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="worlds" class="worlds">
-    <div class="wrap">
-      <h2>Worlds to<br>shoot in</h2>
-      <p class="lede">Eighteen backdrops, from sunny meadows to a dragon sky. The background changes, the waves do not wait.</p>
-      <div class="world-stage">
-        <img id="worldImg" src="assets/worlds/bg18.webp" alt="Dragon World background">
-        <div class="world-cap"><strong id="worldName">Dragon World</strong><span id="worldTag" class="pill p-info"></span></div>
-      </div>
-      <div class="world-strip" id="worldStrip" role="group" aria-label="Choose a world"></div>
-    </div>
-  </section>
-
-  <section id="rewards" class="rewards">
-    <div class="wrap">
-      <div class="feat-head">
-        <h2>30 days,<br>30 rewards</h2>
-        <p class="lede" style="margin:0" id="rewardLede"></p>
-      </div>
-      <ol class="cal" id="cal"></ol>
-      <p class="hint" style="margin-top:14px">Open Daily Rewards from the home screen and tap the card. You can claim once a day.</p>
-    </div>
-  </section>
-
-  <section id="play" class="demo">
-    <div class="wrap">
-      <div class="arena-bar">
-        <div>
-          <h2>Play a round<br>right here</h2>
-          <p class="lede">A simplified browser version with the real crates and guns. Move to aim, click or tap to fire, hold to keep firing. The full game, with its shop and worlds, is on Android.</p>
-        </div>
-        <button class="mute" id="muteBtn" type="button" aria-pressed="false">Sound on</button>
-      </div>
-      <div class="gunpick" id="gunPick" role="group" aria-label="Pick a gun for the demo"></div>
-      <div class="arena-wrap">
-        <canvas id="arena" width="960" height="540" aria-label="ZShoot browser demo. Move the pointer to aim and click or tap to fire at falling crates."></canvas>
-        <div class="ui" id="uiStart">
-          <div class="box">
-            <h3>Ready?</h3>
-            <p>Break the crates before they land. Three strikes and the run is over.</p>
-            <button class="btn" id="startBtn" type="button">Start</button>
-          </div>
-        </div>
-        <div class="ui" id="uiOver" hidden>
-          <div class="box">
-            <h3>Run over</h3>
-            <div class="stat" id="finalScore">0</div>
-            <p id="finalMsg"></p>
-            <div class="cta-row" style="justify-content:center;margin:0">
-              <button class="btn" id="againBtn" type="button">Play again</button>
-              <a class="btn ghost" href="#download">Get the full game</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="tiers">
-    <div class="wrap">
-      <h2>It only gets<br>louder</h2>
-      <p class="lede">The longer you survive, the harder the game pushes. The pace label climbs through six tiers, each with its own colour.</p>
-      <div class="tiers">
-        <div class="tier" style="--c:#00ff88"><h3>Easy</h3><p>Find your aim.</p></div>
-        <div class="tier" style="--c:#66ccff"><h3>Normal</h3><p>Crates start to stack.</p></div>
-        <div class="tier" style="--c:#ffcc00"><h3>Hard</h3><p>No more free seconds.</p></div>
-        <div class="tier" style="--c:#ff8c42"><h3>Intense</h3><p>Fast, heavy, crowded.</p></div>
-        <div class="tier" style="--c:#ff4444"><h3>Extreme</h3><p>Everything at once.</p></div>
-        <div class="tier" style="--c:#ff00ff"><h3>Insane</h3><p>Good luck.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="sounds">
-    <div class="wrap">
-      <h2>Hear it first</h2>
-      <p class="lede">These are the actual sound effects from the game. Tap a card to play it.</p>
-      <div class="sounds">
-        <button class="snd" type="button" data-snd="fire"><span class="t">Fire</span><span class="bars" aria-hidden="true"></span><small>Every shot you take</small></button>
-        <button class="snd" type="button" data-snd="hit"><span class="t">Hit</span><span class="bars" aria-hidden="true"></span><small>Damage lands on a crate</small></button>
-        <button class="snd" type="button" data-snd="explosion"><span class="t">Explosion</span><span class="bars" aria-hidden="true"></span><small>A crate goes down</small></button>
-        <button class="snd" type="button" data-snd="danger"><span class="t">Danger</span><span class="bars" aria-hidden="true"></span><small>The skull crate lands</small></button>
-        <button class="snd" type="button" data-snd="strike"><span class="t">Strike</span><span class="bars" aria-hidden="true"></span><small>You let one through</small></button>
-        <button class="snd" type="button" data-snd="gameover"><span class="t">Game over</span><span class="bars" aria-hidden="true"></span><small>The run ends</small></button>
-      </div>
-    </div>
-  </section>
-
-  <section id="install">
-    <div class="wrap">
-      <h2>Install in<br>three steps</h2>
-      <p class="lede">ZShoot is shared as an APK file, so Android asks one extra question the first time.</p>
-      <ol class="steps">
-        <li><h3>Download</h3><p>Tap Download APK. The file comes from the official ZShoot release page on GitHub and is about 17.6 MB.</p></li>
-        <li><h3>Allow the install</h3><p>Open the file. If Android blocks it, tap Settings and allow installs from your browser or file manager.</p></li>
-        <li><h3>Launch and play</h3><p>Tap Install, then Open. Turn your phone sideways and start your first wave.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section id="download" class="get">
-    <div class="wrap">
-      <div class="panel">
-        <img class="app" src="assets/icon.png" width="190" height="190" alt="ZShoot app icon">
-        <div class="body">
-          <div>
-            <h2>Get ZShoot 3</h2>
-            <p class="lede">The latest build, straight from the official release page.</p>
-          </div>
-          <dl class="spec">
-            <div><dt>Version</dt><dd>3.0.0 (build 3)</dd></div>
-            <div><dt>File size</dt><dd>17.6 MB</dd></div>
-            <div><dt>Requires</dt><dd>Android 5.0 or newer</dd></div>
-            <div><dt>Orientation</dt><dd>Landscape</dd></div>
-            <div><dt>Permissions</dt><dd>Keep screen awake</dd></div>
-            <div><dt>Internet</dt><dd>Not needed</dd></div>
+        <aside class="dossier" aria-label="Developer file">
+          <div class="dos-head"><span class="l">Developer file</span><span class="pill p-info">Active</span></div>
+          <h3>Zishan</h3>
+          <dl class="dos">
+            <div><dt>Role</dt><dd>Founder and developer</dd></div>
+            <div><dt>Squad</dt><dd>ZISHU TRON</dd></div>
+            <div><dt>Status</dt><dd>Student, building in public</dd></div>
+            <div><dt>Focus</dt><dd>Android apps, web apps, AI-powered tools</dd></div>
           </dl>
-          <div class="cta-row" style="margin:0">
-            <a class="btn" href="https://github.com/zishutron/Stardust-store/releases/download/v2.0.0/ZShoot_v3.0.0.3.apk" data-apk target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>
-              Download APK
-            </a>
-            <a class="btn ghost" href="https://github.com/zishutron/Stardust-store/releases" target="_blank" rel="noopener">All releases</a>
+          <p class="dos-quote">"I'm building ZISHU TRON as a long-term journey."</p>
+          <span class="l">Loadout</span>
+          <ul class="chips load">
+            <li>Java and Android</li><li>HTML, CSS, JavaScript</li><li>Firebase</li><li>AI integration</li><li>Product design</li><li>UI and UX</li>
+          </ul>
+          <span class="l">Rules of engagement</span>
+          <ul class="rules">
+            <li>Build instead of only imagining.</li>
+            <li>Learn by creating.</li>
+            <li>Keep improving.</li>
+            <li>Make technology accessible.</li>
+          </ul>
+          <div class="links">
+            <a href="https://zishutron.zishuai.cloud/developer.html" target="_blank" rel="noopener">ZISHU TRON</a>
+            <a href="https://github.com/zishutron" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://x.com/zishanstardust" target="_blank" rel="noopener">X</a>
+            <a href="https://youtube.com/@zishutron" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.linkedin.com/in/zishutron" target="_blank" rel="noopener">LinkedIn</a>
           </div>
-          <div>
-            <p style="color:var(--mute);font-size:.9rem;margin-bottom:8px">SHA-256 checksum of ZShoot_v3.0.0.3.apk</p>
-            <div class="hash">
-              <code id="sha">7eddcfdbc5927da0168b66a5cba4967642ffbb7fdd1d8933ee33e182742c639a</code>
-              <button class="mute" id="copySha" type="button">Copy</button>
-            </div>
-          </div>
-        </div>
+        </aside>
       </div>
     </div>
-  </section>
-
-  <section id="community"><div class="wrap">
-    <h2>Join the<br>squad</h2>
-    <p class="lede">ZShoot is shaped by the people who play it. Tell the developer what you think, ask for help or pitch the next big thing.</p>
-    <div class="hub">
-      <a href="feedback/"><b>Feedback</b><span>Rate the game and read what other players say.</span><em>Write a review</em></a>
-      <a href="ideas/"><b>Shape ZShoot</b><span>Send ideas for new guns, power-ups and worlds. Vote on the roadmap.</span><em>Send an idea</em></a>
-      <a href="ticket/"><b>Support</b><span>Something broken? Open a ticket and follow the answer here.</span><em>Open a ticket</em></a>
-      <a href="about/"><b>About</b><span>The developer behind ZShoot and the squad that builds it.</span><em>Meet the dev</em></a>
-    </div></div></section>
-</main>
+  </section></main>
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <a class="brand" href=""><b>Z</b>SHOOT</a>
+      <a class="brand" href="../"><b>Z</b>SHOOT</a>
       <nav class="foot-nav" aria-label="Footer">
-        <a href="about/">About</a>
-        <a href="ticket/">Support</a>
-        <a href="feedback/">Feedback</a>
-        <a href="ideas/">Ideas</a>
-        <a href="privacy/">Privacy Policy</a>
-        <a href="terms/">Terms of Service</a>
+        <a href="../about/">About</a>
+        <a href="../ticket/">Support</a>
+        <a href="../feedback/">Feedback</a>
+        <a href="../ideas/">Ideas</a>
+        <a href="../privacy/">Privacy Policy</a>
+        <a href="../terms/">Terms of Service</a>
       </nav>
     </div>
     <div class="foot-bot">
@@ -312,9 +91,9 @@
 <div class="scrim" id="scrim" hidden></div>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
-<script>window.ZS_ROOT="";</script>
-<script src="config.js"></script>
-<script src="site.js"></script>
-<script src="store.js"></script>
-<script src="app.js"></script>
+<script>window.ZS_ROOT="../";</script>
+<script src="../config.js"></script>
+<script src="../site.js"></script>
+<script src="../store.js"></script>
+<script src="../app.js"></script>
 </body></html>
