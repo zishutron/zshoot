@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#08090c"><meta name="robots" content="index,follow"><meta name="description" content="Send your idea for ZShoot to the developer and vote on the community roadmap."><meta property="og:title" content="Shape ZShoot | Send an idea"><meta property="og:description" content="Send your idea for ZShoot to the developer and vote on the community roadmap."><meta property="og:image" content="../assets/splash.jpg"><link rel="icon" href="../assets/favicon.png"><title>Shape ZShoot | Send an idea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Saira+Condensed:wght@600;700;800;900&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head><body class="">
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="ZShoot home"><b>Z</b>SHOOT<i>3</i></a>
+    <button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="main" id="mainNav" aria-label="Main">
+      <a href="../#whatsnew">What's new</a>
+      <a href="../#arsenal">Arsenal</a>
+      <a href="../#rewards">Rewards</a>
+      <a href="../#play">Play</a>
+      <a href="../feedback/">Feedback</a>
+      <a href="../ideas/" aria-current="page">Ideas</a>
+      <a href="../ticket/">Support</a>
+      <a href="../about/">About</a>
+    </nav>
+    <button class="req-btn" id="reqBtn" type="button">My requests<span class="badge-n" id="reqBadge" hidden>0</span></button>
+    <a class="btn" href="../#download">Download</a>
+  </div>
+</header>
+<main id="main"><section id="ideas" class="ideas pg">
+    <div class="wrap">
+      <h2>Shape<br>ZShoot</h2>
+      <p class="lede">Want something in the game? A weapon, a power-up, a new wave rule, a better control layout. Describe it in detail and send it to the developer. You can follow what happens to it under My requests.</p>
+      <div class="ideas-grid">
+        <form id="ideaForm" class="form tight" novalidate>
+          <h3>Your idea</h3>
+          <div class="field"><label class="l" for="id-title">Idea title</label><input id="id-title" maxlength="100" placeholder="Short and clear, like Shield power-up"></div>
+          <div class="field"><label class="l" for="id-cat">Type</label>
+            <select id="id-cat">
+              <option value="feature">New feature</option>
+              <option value="powerup">Power-up or weapon</option>
+              <option value="waves">Waves and difficulty</option>
+              <option value="controls">Controls and interface</option>
+              <option value="art">Art and sound</option>
+              <option value="balance">Balance change</option>
+              <option value="other">Something else</option>
+            </select></div>
+          <div class="field"><label class="l" for="id-body">What should it do?</label>
+            <textarea id="id-body" rows="6" maxlength="1500" placeholder="Explain how it works in the game. The more detail you give, the easier it is to build."></textarea>
+            <span class="count" data-for="id-body">0 / 1500</span></div>
+          <div class="field"><label class="l" for="id-why">Why would it make ZShoot better?</label>
+            <textarea id="id-why" rows="3" maxlength="600" placeholder="Optional"></textarea>
+            <span class="count" data-for="id-why">0 / 600</span></div>
+          <div class="row2">
+            <div class="field"><label class="l" for="id-name">Name to credit</label><input id="id-name" maxlength="30" autocomplete="nickname" placeholder="Credit shown if added"></div>
+            <div class="field"><label class="l" for="id-email">Email for follow up</label><input id="id-email" type="email" maxlength="120" autocomplete="email" placeholder="Optional, never shown"></div>
+          </div>
+          <label class="check"><input type="checkbox" id="id-ok"><span>I understand the developer may use my idea in the game without payment. See the <a href="../terms/">Terms of Service</a>.</span></label>
+          <input class="hp" id="id-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn" type="submit">Send to developer</button>
+          <p class="msg" id="ideaMsg" role="status"></p>
+        </form>
+        <div class="road">
+          <div class="road-head">
+            <h3>Community roadmap</h3>
+            <div class="tabs" role="tablist" aria-label="Roadmap stage">
+              <button type="button" role="tab" aria-selected="true" data-stage="planned">Planned</button>
+              <button type="button" role="tab" aria-selected="false" data-stage="in_progress">In progress</button>
+              <button type="button" role="tab" aria-selected="false" data-stage="shipped">Shipped</button>
+            </div>
+          </div>
+          <div id="roadList" class="road-list" aria-live="polite"></div>
+          <p class="hint">Ideas the developer approves land here. Vote for the ones you want first.</p>
+        </div>
+      </div>
+    </div>
+  </section></main>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="brand" href="../"><b>Z</b>SHOOT</a>
+      <nav class="foot-nav" aria-label="Footer">
+        <a href="../about/">About</a>
+        <a href="../ticket/">Support</a>
+        <a href="../feedback/">Feedback</a>
+        <a href="../ideas/">Ideas</a>
+        <a href="../privacy/">Privacy Policy</a>
+        <a href="../terms/">Terms of Service</a>
+      </nav>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; 2026 ZISHU TRON. ZShoot is a ZISHU TRON game. Android is a trademark of Google LLC.</span>
+      <span>Support: support.stardustofficial@gmail.com</span>
+    </div>
+    <p class="mode-note" id="modeNote" hidden></p>
+  </div>
+</footer>
+<aside class="drawer" id="drawer" hidden aria-label="My requests">
+  <div class="sheet-bar"><strong>My requests</strong><span class="grow"></span><button class="mute" type="button" data-close>Close</button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+<div class="scrim" id="scrim" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>window.ZS_ROOT="../";</script>
+<script src="../config.js"></script>
+<script src="../site.js"></script>
+<script src="../store.js"></script>
+<script src="../app.js"></script>
+</body></html>
