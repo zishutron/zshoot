@@ -1,0 +1,55 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function isAdmin() {
+      return signedIn()
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in ['YOUR_ADMIN_EMAIL@gmail.com'];
+    }
+
+    // One index doc per player, and everything they sent lives under it.
+    match /inbox/{uid} {
+      allow get, list: if isAdmin() || (signedIn() && request.auth.uid == uid);
+      allow create, update: if isAdmin() || (signedIn() && request.auth.uid == uid && request.resource.data.uid == uid);
+      allow delete: if isAdmin();
+
+      match /items/{itemId} {
+        allow get, list: if isAdmin() || (signedIn() && request.auth.uid == uid);
+        // Players can only create new, undecided items of their own.
+        allow create: if signedIn() && request.auth.uid == uid
+          && request.resource.data.uid == uid
+          && request.resource.data.kind in ['review', 'idea', 'ticket']
+          && request.resource.data.status in ['pending', 'open']
+          && request.resource.data.adminAt == 0
+          && request.resource.data.body is string
+          && request.resource.data.body.size() <= 1600;
+        // Players may only touch the message bookkeeping fields. Decisions are admin only.
+        allow update: if isAdmin() || (signedIn() && request.auth.uid == uid
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['lastMsgBy', 'lastMsgAt', 'updatedAt'])
+          && request.resource.data.lastMsgBy == 'user');
+        allow delete: if isAdmin();
+
+        match /msgs/{msgId} {
+          allow get, list: if isAdmin() || (signedIn() && request.auth.uid == uid);
+          allow create: if isAdmin() || (signedIn() && request.auth.uid == uid
+            && request.resource.data.from == 'user'
+            && request.resource.data.text is string
+            && request.resource.data.text.size() <= 800);
+          allow update, delete: if isAdmin();
+        }
+      }
+    }
+
+    // Approved content shown to everyone. Only the admin writes here.
+    match /pubReviews/{id} { allow read: if true; allow write: if isAdmin(); }
+    match /pubIdeas/{id}   { allow read: if true; allow write: if isAdmin(); }
+
+    // Roadmap votes: anyone can read, each browser writes only its own vote document.
+    match /votes/{uid} {
+      allow read: if true;
+      allow create, update, delete: if signedIn() && request.auth.uid == uid;
+    }
+  }
+}
