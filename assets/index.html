@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#08090c"><meta name="robots" content="index,follow"><meta name="description" content="Open a support ticket for ZShoot or email support.stardustofficial@gmail.com."><meta property="og:title" content="Support | ZShoot"><meta property="og:description" content="Open a support ticket for ZShoot or email support.stardustofficial@gmail.com."><meta property="og:image" content="../assets/splash.jpg"><link rel="icon" href="../assets/favicon.png"><title>Support | ZShoot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Saira+Condensed:wght@600;700;800;900&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head><body class="">
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="ZShoot home"><b>Z</b>SHOOT<i>3</i></a>
+    <button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="main" id="mainNav" aria-label="Main">
+      <a href="../#whatsnew">What's new</a>
+      <a href="../#arsenal">Arsenal</a>
+      <a href="../#rewards">Rewards</a>
+      <a href="../#play">Play</a>
+      <a href="../feedback/">Feedback</a>
+      <a href="../ideas/">Ideas</a>
+      <a href="../ticket/" aria-current="page">Support</a>
+      <a href="../about/">About</a>
+    </nav>
+    <button class="req-btn" id="reqBtn" type="button">My requests<span class="badge-n" id="reqBadge" hidden>0</span></button>
+    <a class="btn" href="../#download">Download</a>
+  </div>
+</header>
+<main id="main"><section id="support" class="support pg">
+    <div class="wrap">
+      <h2>Support</h2>
+      <p class="lede">Something broken, confusing or missing? Send a ticket and follow the answer on this site, or email the developer directly.</p>
+      <div class="support-grid">
+        <div class="stack">
+          <div class="mail-card">
+            <span class="l">Support email</span>
+            <div class="mail-row">
+              <a id="supportMail" href="mailto:support.stardustofficial@gmail.com">support.stardustofficial@gmail.com</a>
+              <button class="mute" id="copyMail" type="button">Copy</button>
+            </div>
+          </div>
+          <form id="tkForm" class="form tight" novalidate>
+            <h3>Open a ticket</h3>
+            <div class="row2">
+              <div class="field"><label class="l" for="tk-cat">Topic</label>
+                <select id="tk-cat">
+                  <option value="install">Install problem</option>
+                  <option value="bug">Bug or crash</option>
+                  <option value="performance">Lag or performance</option>
+                  <option value="controls">Controls</option>
+                  <option value="privacy">Privacy or data request</option>
+                  <option value="other">Something else</option>
+                </select></div>
+              <div class="field"><label class="l" for="tk-device">Phone and Android version</label><input id="tk-device" maxlength="80" placeholder="Optional, like Redmi Note 10, Android 12"></div>
+            </div>
+            <div class="field"><label class="l" for="tk-subject">Subject</label><input id="tk-subject" maxlength="100"></div>
+            <div class="field"><label class="l" for="tk-body">What happened?</label>
+              <textarea id="tk-body" rows="5" maxlength="1500" placeholder="What did you do, what did you expect, what did you see?"></textarea>
+              <span class="count" data-for="tk-body">0 / 1500</span></div>
+            <div class="field"><label class="l" for="tk-email">Email for the reply</label><input id="tk-email" type="email" maxlength="120" autocomplete="email" placeholder="Optional, the answer also appears under My requests"></div>
+            <input class="hp" id="tk-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn" type="submit">Send to support</button>
+            <p class="msg" id="tkMsg" role="status"></p>
+          </form>
+        </div>
+        <div class="faq" id="faq">
+          <h3>Quick answers</h3>
+          <details><summary>Does ZShoot need internet?</summary><p>No. The app does not request internet access, so you can play anywhere and the game has no way to send data off your device.</p></details>
+          <details><summary>Why does Android warn me before installing?</summary><p>Android shows that warning for every app installed from a file instead of an app store. Compare the SHA-256 checksum in the download section with your file if you want to confirm it is the official build.</p></details>
+          <details><summary>Which phones can run it?</summary><p>Any phone or tablet on Android 5.0 or newer. The game plays in landscape and keeps the screen awake while you play.</p></details>
+          <details><summary>How do I get new guns and worlds?</summary><p>Earn coins by playing, then buy them in the shop. Five rare guns and five worlds also come as daily rewards, so keep claiming.</p></details>
+          <details><summary>How do the daily rewards work?</summary><p>Open Daily Rewards from the home screen and tap the card for the current day. You can claim once a day, and the calendar runs for 30 days.</p></details>
+          <details><summary>Where is my progress saved?</summary><p>On your device only: coins, owned and equipped items, settings, stats and your best wave. Clearing the app's data or uninstalling it removes them.</p></details>
+          <details><summary>How do I control the game?</summary><p>Hold the phone sideways. Your left thumb aims, your right thumb fires.</p></details>
+          <details><summary>How do I follow my ticket or idea?</summary><p>Open My requests at the top of the page. The status, the developer's reply and the full conversation are there, and a badge shows when something new arrives.</p></details>
+          <details><summary>Can I delete what I sent?</summary><p>Email the support address with the reference code from My requests and it will be removed. Details are in the <a href="../privacy/">Privacy Policy</a>.</p></details>
+        </div>
+      </div>
+    </div>
+  </section></main>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="brand" href="../"><b>Z</b>SHOOT</a>
+      <nav class="foot-nav" aria-label="Footer">
+        <a href="../about/">About</a>
+        <a href="../ticket/">Support</a>
+        <a href="../feedback/">Feedback</a>
+        <a href="../ideas/">Ideas</a>
+        <a href="../privacy/">Privacy Policy</a>
+        <a href="../terms/">Terms of Service</a>
+      </nav>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; 2026 ZISHU TRON. ZShoot is a ZISHU TRON game. Android is a trademark of Google LLC.</span>
+      <span>Support: support.stardustofficial@gmail.com</span>
+    </div>
+    <p class="mode-note" id="modeNote" hidden></p>
+  </div>
+</footer>
+<aside class="drawer" id="drawer" hidden aria-label="My requests">
+  <div class="sheet-bar"><strong>My requests</strong><span class="grow"></span><button class="mute" type="button" data-close>Close</button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+<div class="scrim" id="scrim" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>window.ZS_ROOT="../";</script>
+<script src="../config.js"></script>
+<script src="../site.js"></script>
+<script src="../store.js"></script>
+<script src="../app.js"></script>
+</body></html>
